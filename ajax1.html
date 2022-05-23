@@ -9,18 +9,32 @@
 <body>
   <button id="button">Get Text File</button>
 
+  <br>
+  <br>
+  <br>
+
+  <p></p>
+
   <script>
     document.getElementById('button').addEventListener('click', loadText)
+    const paragraph = document.querySelector('p')
 
     function loadText(){
       const xhr = new XMLHttpRequest()
 
       xhr.open('GET', 'sample.text', true)
-
+      xhr.onprogress = function(){
+        // ADD SPINNING GIF HERE
+      }
       xhr.onload = function(){
         if(this.status == 200){
-          console.log(JS)
+          paragraph.innerHTML = this.responseText
+          //console.log(this.responseText)
         }
+      }
+
+      xhr.onerror = function() {
+        console.log('Request error...')
       }
 
       xhr.send()
