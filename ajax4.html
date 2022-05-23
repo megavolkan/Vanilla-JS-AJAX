@@ -4,9 +4,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ajax 4</title>
+  <title>Ajax 4 - AJAX & PHP Form</title>
 </head>
 <body>
-  
+  <button id="button">Get Name</button>
+
+
+  <script>
+    document.getElementById('button').addEventListener('click', getName)
+
+    function getName() {
+      const xhr = new XMLHttpRequest()
+
+      xhr.open('GET', 'process.php', true)
+
+      xhr.onload = function(){
+        console.log(this.responseText)
+      }
+
+      xhr.send()
+    }
+  </script>
 </body>
 </html>
