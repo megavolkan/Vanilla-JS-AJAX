@@ -30,6 +30,8 @@
         if(this.status == 200){
           paragraph.innerHTML = this.responseText
           //console.log(this.responseText)
+        } else {
+          paragraph.innerHTML = 'NOT FOUND'
         }
       }
 
